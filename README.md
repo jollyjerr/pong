@@ -12,5 +12,23 @@ Detailed development notebooks can be found in the `./notebooks` directory, with
 python -m venv venv
 source ./venv/bin/activate
 pip install --upgrade pip
-pip install ale-py gymnasium notebook
+pip install -r requirements.txt
+```
+
+## Scripts
+
+### Random Agent
+
+To view an agent playing Pong that chooses a random action every frame run:
+
+```sh
+python src/random_agent.py
+```
+
+### Trained DQN Model
+
+To view the best performing model from this project play Pong, run:
+
+```sh
+python src/dqn_agent.py
 ```
