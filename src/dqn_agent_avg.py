@@ -8,12 +8,12 @@ from dqn_b import DQN, stack_frames
 
 model_path = Path.cwd() / 'models' / 'best_dqn_pong.pth'
 model_path = model_path.resolve()
-num_episodes = 1
+num_episodes = 5
 
 gym.register_envs(ale_py)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-env = gym.make('ALE/Pong-v5', render_mode="human")
+env = gym.make('ALE/Pong-v5', render_mode=None)
 n_actions = env.action_space.n
 
 policy_net = DQN((4, 84, 84), n_actions).to(device)
