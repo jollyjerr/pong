@@ -18,7 +18,6 @@ file_path = os.path.join(os.getcwd(), 'data/eda.h5')
 print(f"Creating dataset at: {file_path}")
 
 with h5py.File(file_path, 'w') as f:
-    # env.observation_space.shape = (210, 160, 3)
     observations_dataset = f.create_dataset('observations', (0, 210, 160, 3), maxshape=(
         None, 210, 160, 3), dtype=np.uint8, compression="gzip")
     actions_dataset = f.create_dataset('actions', (0,), maxshape=(None,), dtype=np.int32)
@@ -56,7 +55,6 @@ with h5py.File(file_path, 'w') as f:
             current_frame_idx += 1
             frame_count += 1
 
-        # Store episode boundary with inclusive end index
         episode_boundaries.resize(i_episode + 1, axis=0)
         episode_boundaries[i_episode] = [episode_start_idx, current_frame_idx - 1]
 
